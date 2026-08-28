@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARISE — Academic Research, Innovation & Scientific Engagement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══ LOADER ══════════════════════════════ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loaderInner">
+      <div class="loaderWordmark">ARISE</div>
+      <div class="loaderBar">
+        <div class="loaderFill" id="loaderFill"></div>
+      </div>
+      <div class="loaderLabel" id="loaderLabel">Loading</div>
+    </div>
+  </div>
+
+  <!-- ══ CUSTOM CURSOR ════════════════════════ -->
+  <div class="cursor"    id="cursor"></div>
+  <div class="cursorDot" id="cursorDot"></div>
+
+  <!-- ══ NAV ═════════════════════════════════ -->
+  <nav id="navbar">
+    <a href="index.html" class="logoContainer" aria-label="ARISE Home">
+      <img src="logo.png" alt="ARISE" class="logoImg" onerror="this.style.display='none'" />
+      <span class="logoWordmark">ARISE</span>
+    </a>
+
+    <ul class="navLinks" id="navLinks">
+      <li><a href="index.html"      class="navLink active">Home</a></li>
+      <li><a href="about.html"      class="navLink">About</a></li>
+      <li><a href="research.html"   class="navLink">Research</a></li>
+      <li><a href="innovation.html" class="navLink">Innovation</a></li>
+      <li><a href="engagement.html" class="navLink">Engagement</a></li>
+    </ul>
+
+    <a href="contact.html" class="navCta">Contact Us</a>
+
+    <button class="hamburger" id="hamburger"
+            aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- mobile full-screen drawer -->
+  <div class="mobileMenu" id="mobileMenu" aria-hidden="true">
+    <button class="mobileClose" id="mobileClose" aria-label="Close menu">✕</button>
+    <ul>
+      <li><a href="index.html"      class="mobileLink">Home</a></li>
+      <li><a href="about.html"      class="mobileLink">About</a></li>
+      <li><a href="research.html"   class="mobileLink">Research</a></li>
+      <li><a href="innovation.html" class="mobileLink">Innovation</a></li>
+      <li><a href="engagement.html" class="mobileLink">Engagement</a></li>
+      <li><a href="contact.html"    class="mobileLink mobileCta">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- ══ HERO ═════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="heroBg" id="heroBg">
+      <img src="images/hero.jpg" alt="" class="heroBgImg" id="heroBgImg"
+           onerror="this.style.opacity='0'" />
+      <div class="heroBgOverlay"></div>
+    </div>
+
+    <div class="heroContent">
+      <p class="heroEyebrow">EST. 2025 &nbsp;·&nbsp; UTSC</p>
+
+      <h1 class="heroTitle" aria-label="Where curiosity meets research">
+        <span class="heroWord">Where</span>
+        <span class="heroWord">curiosity</span>
+        <span class="heroWord heroWordAccent">meets</span>
+        <span class="heroWord heroWordItalic">research.</span>
+      </h1>
+
+      <p class="heroSub">
+        Academic Research, Innovation &amp; Scientific Engagement —<br>
+        a student community at the University of Toronto Scarborough.
+      </p>
+
+      <div class="heroBtns">
+        <a href="about.html"      class="btnPrimary">Meet the Team</a>
+        <a href="engagement.html" class="btnOutline">Explore Events &nbsp;→</a>
+      </div>
+    </div>
+
+    <div class="heroScroll" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="heroScrollLine"></div>
+    </div>
+  </section>
+
+  <!-- ══ MARQUEE ══════════════════════════════ -->
+  <div class="marqueeWrap" aria-hidden="true">
+    <div class="marqueeTrack">
+      <span>Research</span><span aria-hidden="true">·</span>
+      <span>Innovation</span><span aria-hidden="true">·</span>
+      <span>Engagement</span><span aria-hidden="true">·</span>
+      <span>Discovery</span><span aria-hidden="true">·</span>
+      <span>Community</span><span aria-hidden="true">·</span>
+      <span>UTSC</span><span aria-hidden="true">·</span>
+      <span>Research</span><span aria-hidden="true">·</span>
+      <span>Innovation</span><span aria-hidden="true">·</span>
+      <span>Engagement</span><span aria-hidden="true">·</span>
+      <span>Discovery</span><span aria-hidden="true">·</span>
+      <span>Community</span><span aria-hidden="true">·</span>
+      <span>UTSC</span><span aria-hidden="true">·</span>
+    </div>
+  </div>
+
+  <!-- ══ PILLARS ══════════════════════════════ -->
+  <section class="pillars" id="what-we-do">
+    <div class="sectionInner">
+      <div class="sectionHead">
+        <p class="eyebrow" data-reveal="slide">What We Do</p>
+        <h2>Three pillars, one mission.</h2>
+      </div>
+      <div class="pillarsGrid">
+
+        <div class="pillarCard" data-reveal="rise" data-delay="0">
+          <div class="pillarNum">01</div>
+          <div class="pillarAccent pillarAccentBlue"></div>
+          <div class="pillarIcon">🔬</div>
+          <h3>Interactive Events</h3>
+          <p>Research fairs, lab showcases, and networking nights that connect undergraduates with professors and working researchers.</p>
+          <span class="pillarArrow">→</span>
+        </div>
+
+        <div class="pillarCard" data-reveal="rise" data-delay="1">
+          <div class="pillarNum">02</div>
+          <div class="pillarAccent pillarAccentGreen"></div>
+          <div class="pillarIcon">🎤</div>
+          <h3>Awareness Panels</h3>
+          <p>Discussions that amplify the diverse voices too often absent from research conversations — and interrogate how research shapes society.</p>
+          <span class="pillarArrow">→</span>
+        </div>
+
+        <div class="pillarCard" data-reveal="rise" data-delay="2">
+          <div class="pillarNum">03</div>
+          <div class="pillarAccent pillarAccentPurple"></div>
+          <div class="pillarIcon">🛠️</div>
+          <h3>Skill-Building Workshops</h3>
+          <p>Literature reviews, grant writing, data analysis — practical sessions that give you tools to pursue research with confidence.</p>
+          <span class="pillarArrow">→</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FIGURES ══════════════════════════════ -->
+  <section class="figures" id="figures">
+    <div class="figuresHead">
+      <p class="eyebrow eyebrowLight" data-reveal="slide">Key Figures</p>
+    </div>
+    <div class="figuresGrid">
+
+      <div class="figureCell" data-reveal="rise" data-delay="0">
+        <span class="figureIdx">1.</span>
+        <span class="figureVal" data-count="200" data-suffix="+">0</span>
+        <span class="figureLabel">Student Members</span>
+      </div>
+
+      <div class="figureCell" data-reveal="rise" data-delay="1">
+        <span class="figureIdx">2.</span>
+        <span class="figureVal" data-count="30" data-suffix="+">0</span>
+        <span class="figureLabel">Events Hosted</span>
+      </div>
+
+      <div class="figureCell" data-reveal="rise" data-delay="2">
+        <span class="figureIdx">3.</span>
+        <span class="figureVal" data-count="12" data-suffix="+">0</span>
+        <span class="figureLabel">Research Fields</span>
+      </div>
+
+      <div class="figureCell" data-reveal="rise" data-delay="3">
+        <span class="figureIdx">4.</span>
+        <span class="figureVal" data-count="3" data-suffix="">0</span>
+        <span class="figureLabel">Campus Partners</span>
+      </div>
+
+      <div class="figureCell" data-reveal="rise" data-delay="4">
+        <span class="figureIdx">5.</span>
+        <span class="figureVal" data-count="8" data-suffix="+">0</span>
+        <span class="figureLabel">Faculty Collaborators</span>
+      </div>
+
+      <div class="figureCell" data-reveal="rise" data-delay="5">
+        <span class="figureIdx">6.</span>
+        <span class="figureVal" data-count="2" data-suffix="">0</span>
+        <span class="figureLabel">Years Running</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ MISSION ══════════════════════════════ -->
+  <section class="mission" id="mission">
+    <div class="sectionInner missionInner">
+
+      <div class="missionLeft">
+        <p class="eyebrow" data-reveal="slide">Our Mission</p>
+        <h2>
+          Research for every undergraduate — not just the ones who already know the way.
+        </h2>
+        <p class="missionBody" data-reveal="fade">
+          ARISE exists to close the gap between curious students and the world of academic
+          research. We believe the best ideas emerge when research is accessible to
+          everyone — regardless of background, discipline, or prior experience.
+        </p>
+        <p class="missionBody" data-reveal="fade">
+          Whether you're just getting started or thinking long-term about a research career,
+          we're here to support every step of your journey at UTSC.
+        </p>
+        <a href="about.html" class="btnPrimary" data-reveal="rise"
+           style="margin-top: 2rem; display: inline-flex;">
+          Learn About Us &nbsp;→
+        </a>
+      </div>
+
+      <div class="missionRight" data-reveal="fade">
+        <div class="missionImgWrap">
+          <img src="images/mission.jpg" alt="ARISE community" class="missionImg"
+               onerror="this.closest('.missionImgWrap').classList.add('missionImgWrapPlaceholder')" />
+        </div>
+        <div class="missionTagLine">
+          <span class="tagBlue">Inclusive</span>
+          <span class="tagGreen">Curious</span>
+          <span class="tagPurple">Community-driven</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ VALUES ═══════════════════════════════ -->
+  <section class="values" id="values">
+    <div class="sectionInner">
+      <div class="sectionHead sectionHeadCenter">
+        <p class="eyebrow" data-reveal="slide">Our Values</p>
+        <h2>What drives everything we do</h2>
+      </div>
+      <div class="valuesGrid">
+
+        <div class="valueItem" data-reveal="rise" data-delay="0">
+          <div class="valueNum">01</div>
+          <h3>Inclusivity</h3>
+          <p>Research shouldn't be a privilege. We design every program to remove barriers — to be a first door, not a locked one.</p>
+        </div>
+
+        <div class="valueItem" data-reveal="rise" data-delay="1">
+          <div class="valueNum">02</div>
+          <h3>Curiosity</h3>
+          <p>The most important qualification for research is the willingness to ask a question you don't yet know the answer to.</p>
+        </div>
+
+        <div class="valueItem" data-reveal="rise" data-delay="2">
+          <div class="valueNum">03</div>
+          <h3>Collaboration</h3>
+          <p>The best research doesn't happen in isolation. We build bridges across disciplines, departments, and campuses.</p>
+        </div>
+
+        <div class="valueItem" data-reveal="rise" data-delay="3">
+          <div class="valueNum">04</div>
+          <h3>Community</h3>
+          <p>A space where students support each other — sharing resources, celebrating wins, navigating academia together.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA ══════════════════════════════════ -->
+  <section class="cta" id="cta">
+    <div class="sectionInner ctaInner">
+      <h2 class="ctaTitle">Ready to get involved?</h2>
+      <p class="ctaBody">
+        Join a community of students who believe undergraduate research should be a right, not a privilege.
+      </p>
+      <div class="ctaBtns">
+        <a href="engagement.html" class="btnPrimary">Explore Events</a>
+        <a href="contact.html"    class="btnGhost">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ════════════════════════════════ -->
+  <footer class="footer">
+    <div class="sectionInner footerInner">
+
+      <div class="footerBrand">
+        <span class="footerWordmark">ARISE</span>
+        <p>University of Toronto Scarborough<br>© 2025 All rights reserved.</p>
+      </div>
+
+      <nav class="footerNav" aria-label="Site navigation">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">      <span class="material-icons">home</span>      Home</a></li>
+          <li><a href="about.html">      <span class="material-icons">groups</span>    About</a></li>
+          <li><a href="research.html">   <span class="material-icons">science</span>   Research</a></li>
+          <li><a href="innovation.html"> <span class="material-icons">lightbulb</span> Innovation</a></li>
+          <li><a href="engagement.html"> <span class="material-icons">event</span>     Engagement</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footerNav" aria-label="Social links">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#"><span class="material-icons">photo_camera</span> Instagram</a></li>
+          <li><a href="#"><span class="material-icons">forum</span>        Discord</a></li>
+          <li><a href="#"><span class="material-icons">work</span>         LinkedIn</a></li>
+          <li><a href="contact.html"><span class="material-icons">mail</span> Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+    <div class="footerRule"></div>
+    <div class="sectionInner footerBottom">
+      <p>Built by ARISE · UTSC 2025</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
