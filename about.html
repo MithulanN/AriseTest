@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — ARISE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ══ LOADER ══════════════════════════════ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loaderInner">
+      <div class="loaderWordmark">ARISE</div>
+      <div class="loaderBar"><div class="loaderFill" id="loaderFill"></div></div>
+      <div class="loaderLabel" id="loaderLabel">Loading</div>
+    </div>
+  </div>
+
+  <!-- ══ CUSTOM CURSOR ════════════════════════ -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursorDot" id="cursorDot"></div>
+
+  <!-- ══ NAV ═════════════════════════════════ -->
+  <nav id="navbar">
+    <a href="index.html" class="logoContainer" aria-label="ARISE Home">
+      <img src="images/logo.png" alt="ARISE" class="logoImg" />
+      <span class="logoWordmark">ARISE</span>
+    </a>
+    <ul class="navLinks" id="navLinks">
+      <li><a href="index.html"      class="navLink">Home</a></li>
+      <li><a href="about.html"      class="navLink active">About</a></li>
+      <li><a href="events.html"     class="navLink">Events</a></li>
+      <li><a href="newsletter.html" class="navLink">Newsletter</a></li>
+      <li><a href="research.html"   class="navLink">Research</a></li>
+    </ul>
+    <a href="contact.html" class="navCta">Contact Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="mobileMenu" id="mobileMenu" aria-hidden="true">
+    <button class="mobileClose" id="mobileClose" aria-label="Close menu">✕</button>
+    <ul>
+      <li><a href="index.html"      class="mobileLink">Home</a></li>
+      <li><a href="about.html"      class="mobileLink">About</a></li>
+      <li><a href="events.html"     class="mobileLink">Events</a></li>
+      <li><a href="newsletter.html" class="mobileLink">Newsletter</a></li>
+      <li><a href="research.html"   class="mobileLink">Research</a></li>
+      <li><a href="contact.html"    class="mobileLink mobileCta">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- ══ PAGE HERO ════════════════════════════ -->
+  <section class="pageHero">
+    <div class="pageHeroInner">
+      <p class="pageHeroEyebrow">The People</p>
+      <h1>Built by students, for students.</h1>
+      <p class="pageHeroSub">
+        ARISE is run entirely by undergraduates who believe research should be open to anyone
+        willing to ask a question. Meet the team making it happen.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ LEADERSHIP ══════════════════════════ -->
+  <section class="teamSection">
+    <div class="sectionInner">
+      <p class="teamSectionLabel">Leadership</p>
+      <div class="teamGridExec">
+
+        <div class="memberCardExec">
+          <div class="memberAvatar">
+            <div class="memberAvatarInitials">HW</div>
+          </div>
+          <div class="memberRoleBar memberRoleBarBlue"></div>
+          <h3>Hayley Wong</h3>
+          <span class="memberRole">Co-President</span>
+          <div class="memberLinks">
+            <a href="mailto:hayley.wong@mail.utoronto.ca" class="memberLink">Email</a>
+          </div>
+        </div>
+
+        <div class="memberCardExec">
+          <div class="memberAvatar">
+            <div class="memberAvatarInitials">LV</div>
+          </div>
+          <div class="memberRoleBar memberRoleBarBlue"></div>
+          <h3>Lakesha Varathalingam</h3>
+          <span class="memberRole">Co-President</span>
+          <div class="memberLinks">
+            <a href="mailto:lakesha.varathalingam@mail.utoronto.ca" class="memberLink">Email</a>
+          </div>
+        </div>
+
+        <div class="memberCardExec">
+          <div class="memberAvatar">
+            <div class="memberAvatarInitials">NN</div>
+          </div>
+          <div class="memberRoleBar memberRoleBarGreen"></div>
+          <h3>Niketha Nanthakumar</h3>
+          <span class="memberRole">Vice President</span>
+          <div class="memberLinks">
+            <a href="mailto:niketha.nanthakumar@mail.utoronto.ca" class="memberLink">Email</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ DIRECTORS & COORDINATORS ═══════════ -->
+  <section class="teamSection" style="background: var(--off);">
+    <div class="sectionInner">
+      <p class="teamSectionLabel">Directors &amp; Coordinators</p>
+      <div class="teamGridMembers">
+
+        <div class="memberCardCompact">
+          <div class="memberAvatarSm"><div class="memberAvatarInitials" style="font-size:.75rem;">DS</div></div>
+          <h4>Dilaksha Sutharjan</h4>
+          <span class="memberRole">Director of Finance</span>
+        </div>
+
+        <div class="memberCardCompact">
+          <div class="memberAvatarSm"><div class="memberAvatarInitials" style="font-size:.75rem;">HM</div></div>
+          <h4>Hiyam Murshid</h4>
+          <span class="memberRole">Director of Administration</span>
+        </div>
+
+        <div class="memberCardCompact">
+          <div class="memberAvatarSm"><div class="memberAvatarInitials" style="font-size:.75rem;">JT</div></div>
+          <h4>Jessica Tai</h4>
+          <span class="memberRole">Marketing Director</span>
+        </div>
+
+        <div class="memberCardCompact">
+          <div class="memberAvatarSm"><div class="memberAvatarInitials" style="font-size:.75rem;">KS</div></div>
+          <h4>Kacia Sam</h4>
+          <span class="memberRole">Marketing Coordinator</span>
+        </div>
+
+        <div class="memberCardCompact">
+          <div class="memberAvatarSm"><div class="memberAvatarInitials" style="font-size:.75rem;">JR</div></div>
+          <h4>Janessa Ramlochan</h4>
+          <span class="memberRole">Marketing Coordinator</span>
+        </div>
+
+        <div class="memberCardCompact">
+          <div class="memberAvatarSm"><div class="memberAvatarInitials" style="font-size:.75rem;">AS</div></div>
+          <h4>Anna Jo Sackda</h4>
+          <span class="memberRole">Event Director</span>
+        </div>
+
+        <div class="memberCardCompact">
+          <div class="memberAvatarSm"><div class="memberAvatarInitials" style="font-size:.75rem;">CM</div></div>
+          <h4>Chun Yin Mak</h4>
+          <span class="memberRole">Event Coordinator</span>
+        </div>
+
+        <div class="memberCardCompact">
+          <div class="memberAvatarSm"><div class="memberAvatarInitials" style="font-size:.75rem;">MP</div></div>
+          <h4>Marissa Plaza</h4>
+          <span class="memberRole">Event Coordinator</span>
+        </div>
+
+        <div class="memberCardCompact">
+          <div class="memberAvatarSm"><div class="memberAvatarInitials" style="font-size:.75rem;">MC</div></div>
+          <h4>Masaya Chan</h4>
+          <span class="memberRole">Chief Newsletter Editor</span>
+        </div>
+
+        <div class="memberCardCompact">
+          <div class="memberAvatarSm"><div class="memberAvatarInitials" style="font-size:.75rem;">HR</div></div>
+          <h4>Huda Rashid</h4>
+          <span class="memberRole">Newsletter Editor</span>
+        </div>
+
+        <div class="memberCardCompact">
+          <div class="memberAvatarSm"><div class="memberAvatarInitials" style="font-size:.75rem;">CK</div></div>
+          <h4>Clarissa Koh</h4>
+          <span class="memberRole">Newsletter Editor</span>
+        </div>
+
+        <div class="memberCardCompact">
+          <div class="memberAvatarSm"><div class="memberAvatarInitials" style="font-size:.75rem;">II</div></div>
+          <h4>Isabelle Imambaksh</h4>
+          <span class="memberRole">Director of Research Awareness</span>
+        </div>
+
+        <div class="memberCardCompact">
+          <div class="memberAvatarSm"><div class="memberAvatarInitials" style="font-size:.75rem;">SM</div></div>
+          <h4>Samaritan Mostaque</h4>
+          <span class="memberRole">Director of Research Education</span>
+        </div>
+
+        <div class="memberCardCompact">
+          <div class="memberAvatarSm"><div class="memberAvatarInitials" style="font-size:.75rem;">MN</div></div>
+          <h4>Mithulan Nanthakumar</h4>
+          <span class="memberRole">Digital Community Director</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA ══════════════════════════════════ -->
+  <section class="cta">
+    <div class="sectionInner ctaInner">
+      <h2 class="ctaTitle">Want to join the team?</h2>
+      <p class="ctaBody">
+        We recruit new volunteers and executives each academic year. Applications open in September.
+      </p>
+      <div class="ctaBtns">
+        <a href="contact.html" class="btnPrimary">Get in Touch</a>
+        <a href="events.html"  class="btnGhost">See Upcoming Events</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ════════════════════════════════ -->
+  <footer class="footer">
+    <div class="sectionInner footerInner">
+      <div class="footerBrand">
+        <span class="footerWordmark">ARISE</span>
+        <p>University of Toronto Scarborough<br>© 2025 All rights reserved.</p>
+      </div>
+      <nav class="footerNav" aria-label="Site navigation">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">      <span class="material-icons">home</span>         Home</a></li>
+          <li><a href="about.html">      <span class="material-icons">groups</span>       About</a></li>
+          <li><a href="events.html">     <span class="material-icons">event</span>        Events</a></li>
+          <li><a href="newsletter.html"> <span class="material-icons">mail_outline</span> Newsletter</a></li>
+          <li><a href="research.html">   <span class="material-icons">science</span>      Research</a></li>
+        </ul>
+      </nav>
+      <nav class="footerNav" aria-label="Social links">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#"><span class="material-icons">photo_camera</span> Instagram</a></li>
+          <li><a href="#"><span class="material-icons">forum</span>        Discord</a></li>
+          <li><a href="#"><span class="material-icons">work</span>         LinkedIn</a></li>
+          <li><a href="contact.html"><span class="material-icons">mail</span> Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footerRule"></div>
+    <div class="sectionInner footerBottom">
+      <p>Built by UTSC ARISE 2025</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

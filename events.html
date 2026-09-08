@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events — ARISE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ══ LOADER ══════════════════════════════ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loaderInner">
+      <div class="loaderWordmark">ARISE</div>
+      <div class="loaderBar"><div class="loaderFill" id="loaderFill"></div></div>
+      <div class="loaderLabel" id="loaderLabel">Loading</div>
+    </div>
+  </div>
+
+  <!-- ══ CUSTOM CURSOR ════════════════════════ -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursorDot" id="cursorDot"></div>
+
+  <!-- ══ NAV ═════════════════════════════════ -->
+  <nav id="navbar">
+    <a href="index.html" class="logoContainer" aria-label="ARISE Home">
+      <img src="images/logo.png" alt="ARISE" class="logoImg" />
+      <span class="logoWordmark">ARISE</span>
+    </a>
+    <ul class="navLinks" id="navLinks">
+      <li><a href="index.html"      class="navLink">Home</a></li>
+      <li><a href="about.html"      class="navLink">About</a></li>
+      <li><a href="events.html"     class="navLink active">Events</a></li>
+      <li><a href="newsletter.html" class="navLink">Newsletter</a></li>
+      <li><a href="research.html"   class="navLink">Research</a></li>
+    </ul>
+    <a href="contact.html" class="navCta">Contact Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobileMenu" id="mobileMenu" aria-hidden="true">
+    <button class="mobileClose" id="mobileClose" aria-label="Close menu">✕</button>
+    <ul>
+      <li><a href="index.html"      class="mobileLink">Home</a></li>
+      <li><a href="about.html"      class="mobileLink">About</a></li>
+      <li><a href="events.html"     class="mobileLink">Events</a></li>
+      <li><a href="newsletter.html" class="mobileLink">Newsletter</a></li>
+      <li><a href="research.html"   class="mobileLink">Research</a></li>
+      <li><a href="contact.html"    class="mobileLink mobileCta">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- ══ PAGE HERO ════════════════════════════ -->
+  <section class="pageHero">
+    <div class="pageHeroInner">
+      <p class="pageHeroEyebrow">Events</p>
+      <h1>Where research becomes a conversation.</h1>
+      <p class="pageHeroSub">
+        From lab showcases to grant-writing workshops, every ARISE event is designed to
+        bring you one step closer to research — whatever your starting point.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ EVENTS LAYOUT ════════════════════════ -->
+  <section class="eventsLayout">
+    <div class="sectionInner">
+
+      <!-- Tab switcher -->
+      <div class="eventsTabs" role="tablist">
+        <button class="eventsTab active" id="tab-upcoming" role="tab"
+                aria-selected="true" aria-controls="panel-upcoming">
+          Upcoming
+        </button>
+        <button class="eventsTab" id="tab-past" role="tab"
+                aria-selected="false" aria-controls="panel-past">
+          Past Events
+        </button>
+      </div>
+
+      <!-- ── Calendar ─────────────────────── -->
+      <div class="calendarWrap" aria-label="Events calendar">
+        <div class="calendarHeader">
+          <span class="calendarTitle" id="calMonthLabel">October 2025</span>
+          <div class="calendarNav">
+            <button class="calNavBtn" id="calPrev" aria-label="Previous month">&#8249;</button>
+            <button class="calNavBtn" id="calNext" aria-label="Next month">&#8250;</button>
+          </div>
+        </div>
+        <div class="calendarGrid" id="calendarGrid" role="grid" aria-label="Calendar">
+          <!-- Days of week labels -->
+          <div class="calDayLabel" aria-hidden="true">Su</div>
+          <div class="calDayLabel" aria-hidden="true">Mo</div>
+          <div class="calDayLabel" aria-hidden="true">Tu</div>
+          <div class="calDayLabel" aria-hidden="true">We</div>
+          <div class="calDayLabel" aria-hidden="true">Th</div>
+          <div class="calDayLabel" aria-hidden="true">Fr</div>
+          <div class="calDayLabel" aria-hidden="true">Sa</div>
+          <!-- Days populated by JS -->
+        </div>
+      </div>
+
+      <!-- ── Upcoming events panel ─────────── -->
+      <div id="panel-upcoming" role="tabpanel" aria-labelledby="tab-upcoming">
+        <div class="eventsGrid">
+
+          <div class="eventCard" data-reveal="rise" data-delay="0">
+            <span class="eventDateChip">
+              <span class="eventDateDot eventDateDotUpcoming"></span>
+              Thu, Oct 16, 2025 · 5:00 PM
+            </span>
+            <h3>Fall Research Fair 2025</h3>
+            <p>
+              Our biggest event of the year. Connect with UTSC professors, browse active
+              research projects, and find out how to get involved. Open to all years and
+              all programs — no experience needed.
+            </p>
+            <div class="eventMeta">
+              <span class="eventMetaItem">
+                <span class="material-icons">location_on</span> IC 200, UTSC
+              </span>
+              <span class="eventMetaItem">
+                <span class="material-icons">schedule</span> 2 hours
+              </span>
+              <span class="eventMetaItem">
+                <span class="material-icons">people</span> All years welcome
+              </span>
+            </div>
+          </div>
+
+          <div class="eventCard" data-reveal="rise" data-delay="1">
+            <span class="eventDateChip">
+              <span class="eventDateDot eventDateDotUpcoming"></span>
+              Wed, Oct 22, 2025 · 6:30 PM
+            </span>
+            <h3>Literature Review Workshop</h3>
+            <p>
+              A hands-on session covering how to search databases, evaluate sources,
+              and structure a literature review. Bring your own laptop — we'll walk through
+              real examples using PubMed, Web of Science, and Google Scholar.
+            </p>
+            <div class="eventMeta">
+              <span class="eventMetaItem">
+                <span class="material-icons">location_on</span> BV 498, UTSC
+              </span>
+              <span class="eventMetaItem">
+                <span class="material-icons">schedule</span> 90 minutes
+              </span>
+              <span class="eventMetaItem">
+                <span class="material-icons">laptop</span> Bring a laptop
+              </span>
+            </div>
+          </div>
+
+          <div class="eventCard" data-reveal="rise" data-delay="2">
+            <span class="eventDateChip">
+              <span class="eventDateDot eventDateDotUpcoming"></span>
+              Mon, Nov 3, 2025 · 5:30 PM
+            </span>
+            <h3>Panel: Who Gets to Do Research?</h3>
+            <p>
+              A conversation on equity and access in academic research, featuring graduate
+              students and faculty from across UTSC. Moderated by ARISE's VP External.
+              Light refreshments provided.
+            </p>
+            <div class="eventMeta">
+              <span class="eventMetaItem">
+                <span class="material-icons">location_on</span> MW 170, UTSC
+              </span>
+              <span class="eventMetaItem">
+                <span class="material-icons">schedule</span> 75 minutes
+              </span>
+            </div>
+          </div>
+
+          <div class="eventCard" data-reveal="rise" data-delay="3">
+            <span class="eventDateChip">
+              <span class="eventDateDot eventDateDotUpcoming"></span>
+              Thu, Nov 13, 2025 · 6:00 PM
+            </span>
+            <h3>Grant Writing 101</h3>
+            <p>
+              Demystifying the NSERC USRA and other undergraduate funding opportunities.
+              Learn how to frame your project, write a compelling research statement,
+              and get feedback on your draft before submission.
+            </p>
+            <div class="eventMeta">
+              <span class="eventMetaItem">
+                <span class="material-icons">location_on</span> AA 112, UTSC
+              </span>
+              <span class="eventMetaItem">
+                <span class="material-icons">schedule</span> 2 hours
+              </span>
+            </div>
+          </div>
+
+          <div class="eventCard" data-reveal="rise" data-delay="4">
+            <span class="eventDateChip">
+              <span class="eventDateDot eventDateDotUpcoming"></span>
+              Wed, Nov 26, 2025 · 5:00 PM
+            </span>
+            <h3>Data Analysis with Python</h3>
+            <p>
+              A beginner-friendly introduction to data analysis for research. We'll cover
+              pandas, matplotlib, and basic statistical testing. No prior Python experience
+              required — a script template will be provided.
+            </p>
+            <div class="eventMeta">
+              <span class="eventMetaItem">
+                <span class="material-icons">location_on</span> BV 498, UTSC
+              </span>
+              <span class="eventMetaItem">
+                <span class="material-icons">laptop</span> Bring a laptop
+              </span>
+              <span class="eventMetaItem">
+                <span class="material-icons">schedule</span> 2 hours
+              </span>
+            </div>
+          </div>
+
+          <div class="eventCard" data-reveal="rise" data-delay="5">
+            <span class="eventDateChip">
+              <span class="eventDateDot eventDateDotUpcoming"></span>
+              Thu, Dec 4, 2025 · 6:30 PM
+            </span>
+            <h3>End-of-Semester Networking Night</h3>
+            <p>
+              A casual close to the fall semester — a chance to connect with fellow members,
+              meet faculty, and hear about research opportunities opening in the winter and
+              summer terms.
+            </p>
+            <div class="eventMeta">
+              <span class="eventMetaItem">
+                <span class="material-icons">location_on</span> SY 110, UTSC
+              </span>
+              <span class="eventMetaItem">
+                <span class="material-icons">schedule</span> 90 minutes
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── Past events panel ─────────────── -->
+      <div id="panel-past" role="tabpanel" aria-labelledby="tab-past" hidden>
+        <div class="eventsGrid">
+
+          <div class="eventCard">
+            <span class="eventDateChip">
+              <span class="eventDateDot eventDateDotPast"></span>
+              Tue, Sep 9, 2025
+            </span>
+            <span class="eventPastBadge">Past</span>
+            <h3>ARISE Kickoff — Welcome Night</h3>
+            <p>
+              Our fall semester launch event. New and returning members gathered to learn
+              about the year's programming, meet the executive team, and connect with
+              others interested in undergraduate research.
+            </p>
+            <div class="eventMeta">
+              <span class="eventMetaItem">
+                <span class="material-icons">people</span> 80 attendees
+              </span>
+              <span class="eventMetaItem">
+                <span class="material-icons">location_on</span> SY 110, UTSC
+              </span>
+            </div>
+          </div>
+
+          <div class="eventCard">
+            <span class="eventDateChip">
+              <span class="eventDateDot eventDateDotPast"></span>
+              Wed, Sep 17, 2025
+            </span>
+            <span class="eventPastBadge">Past</span>
+            <h3>Research Pathways Info Session</h3>
+            <p>
+              An overview of how undergraduates can get involved in research at UTSC —
+              covering NSERC USRA, ROP courses, and direct faculty outreach. Presented
+              by three upper-year student researchers.
+            </p>
+            <div class="eventMeta">
+              <span class="eventMetaItem">
+                <span class="material-icons">people</span> 45 attendees
+              </span>
+            </div>
+          </div>
+
+          <div class="eventCard">
+            <span class="eventDateChip">
+              <span class="eventDateDot eventDateDotPast"></span>
+              Mon, Sep 29, 2025
+            </span>
+            <span class="eventPastBadge">Past</span>
+            <h3>Lab Tour: Biological Sciences</h3>
+            <p>
+              A guided tour of three research labs in the Science Wing, hosted by
+              graduate students. Attendees got an up-close look at active projects in
+              genomics, ecology, and cell biology.
+            </p>
+            <div class="eventMeta">
+              <span class="eventMetaItem">
+                <span class="material-icons">people</span> 32 attendees
+              </span>
+              <span class="eventMetaItem">
+                <span class="material-icons">location_on</span> Science Wing, UTSC
+              </span>
+            </div>
+          </div>
+
+          <div class="eventCard">
+            <span class="eventDateChip">
+              <span class="eventDateDot eventDateDotPast"></span>
+              Thu, Oct 2, 2025
+            </span>
+            <span class="eventPastBadge">Past</span>
+            <h3>Reading Group: Science and Society</h3>
+            <p>
+              The first meeting of ARISE's seminar-style reading group, working through
+              selected chapters on the social dimensions of scientific research. Open
+              discussion format, no pre-reading required to attend.
+            </p>
+            <div class="eventMeta">
+              <span class="eventMetaItem">
+                <span class="material-icons">people</span> 22 attendees
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ════════════════════════════════ -->
+  <footer class="footer">
+    <div class="sectionInner footerInner">
+      <div class="footerBrand">
+        <span class="footerWordmark">ARISE</span>
+        <p>University of Toronto Scarborough<br>© 2025 All rights reserved.</p>
+      </div>
+      <nav class="footerNav" aria-label="Site navigation">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">      <span class="material-icons">home</span>         Home</a></li>
+          <li><a href="about.html">      <span class="material-icons">groups</span>       About</a></li>
+          <li><a href="events.html">     <span class="material-icons">event</span>        Events</a></li>
+          <li><a href="newsletter.html"> <span class="material-icons">mail_outline</span> Newsletter</a></li>
+          <li><a href="research.html">   <span class="material-icons">science</span>      Research</a></li>
+        </ul>
+      </nav>
+      <nav class="footerNav" aria-label="Social links">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#"><span class="material-icons">photo_camera</span> Instagram</a></li>
+          <li><a href="#"><span class="material-icons">forum</span>        Discord</a></li>
+          <li><a href="#"><span class="material-icons">work</span>         LinkedIn</a></li>
+          <li><a href="contact.html"><span class="material-icons">mail</span> Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footerRule"></div>
+    <div class="sectionInner footerBottom">
+      <p>Built by UTSC ARISE 2025</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    /* ─── Events page: tab switching + calendar ─── */
+    (function () {
+      'use strict';
+
+      /* Tab switching */
+      const tabUpcoming = document.getElementById('tab-upcoming');
+      const tabPast     = document.getElementById('tab-past');
+      const panelUp     = document.getElementById('panel-upcoming');
+      const panelPast   = document.getElementById('panel-past');
+
+      function showTab(tab) {
+        const isUpcoming = tab === 'upcoming';
+        tabUpcoming.classList.toggle('active', isUpcoming);
+        tabPast.classList.toggle('active', !isUpcoming);
+        tabUpcoming.setAttribute('aria-selected', isUpcoming);
+        tabPast.setAttribute('aria-selected', !isUpcoming);
+        panelUp.hidden   = !isUpcoming;
+        panelPast.hidden = isUpcoming;
+      }
+
+      tabUpcoming.addEventListener('click', () => showTab('upcoming'));
+      tabPast.addEventListener('click',     () => showTab('past'));
+
+      /* Calendar */
+      // Events keyed as "YYYY-M-D": { type: 'upcoming'|'past' }
+      const EVENTS = {
+        '2025-9-9':  { type: 'past' },
+        '2025-9-17': { type: 'past' },
+        '2025-9-29': { type: 'past' },
+        '2025-10-2': { type: 'past' },
+        '2025-10-16':{ type: 'upcoming' },
+        '2025-10-22':{ type: 'upcoming' },
+        '2025-11-3': { type: 'upcoming' },
+        '2025-11-13':{ type: 'upcoming' },
+        '2025-11-26':{ type: 'upcoming' },
+        '2025-12-4': { type: 'upcoming' },
+      };
+
+      const monthLabel = document.getElementById('calMonthLabel');
+      const calGrid    = document.getElementById('calendarGrid');
+      const btnPrev    = document.getElementById('calPrev');
+      const btnNext    = document.getElementById('calNext');
+
+      const MONTH_NAMES = [
+        'January','February','March','April','May','June',
+        'July','August','September','October','November','December'
+      ];
+
+      const today = new Date();
+      let viewYear  = 2025;
+      let viewMonth = 9; // 0-indexed: September
+
+      function buildCalendar(year, month) {
+        // Remove all day cells (keep the 7 day-label divs at the top)
+        const labels = calGrid.querySelectorAll('.calDayLabel');
+        calGrid.innerHTML = '';
+        labels.forEach(l => calGrid.appendChild(l));
+
+        monthLabel.textContent = MONTH_NAMES[month] + ' ' + year;
+
+        const firstDay = new Date(year, month, 1).getDay(); // 0=Sun
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const daysInPrev  = new Date(year, month, 0).getDate();
+
+        // Prev-month filler
+        for (let i = firstDay - 1; i >= 0; i--) {
+          const d = document.createElement('div');
+          d.className = 'calDay otherMonth';
+          d.textContent = daysInPrev - i;
+          calGrid.appendChild(d);
+        }
+
+        // Current month
+        for (let day = 1; day <= daysInMonth; day++) {
+          const d   = document.createElement('div');
+          const key = `${year}-${month + 1}-${day}`;
+          const ev  = EVENTS[key];
+          const isToday = (
+            day === today.getDate() &&
+            month === today.getMonth() &&
+            year === today.getFullYear()
+          );
+
+          d.className = 'calDay';
+          if (isToday) d.classList.add('today');
+          if (ev) {
+            d.classList.add('hasEvent');
+            if (ev.type === 'past') d.classList.add('hasPastEvent');
+            d.setAttribute('title', 'Event on this day');
+            d.addEventListener('click', () => {
+              showTab(ev.type === 'upcoming' ? 'upcoming' : 'past');
+              document.getElementById('panel-' + (ev.type === 'upcoming' ? 'upcoming' : 'past'))
+                .scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+          }
+          d.textContent = day;
+          calGrid.appendChild(d);
+        }
+
+        // Next-month filler to complete grid
+        const total = firstDay + daysInMonth;
+        const remaining = total % 7 === 0 ? 0 : 7 - (total % 7);
+        for (let i = 1; i <= remaining; i++) {
+          const d = document.createElement('div');
+          d.className = 'calDay otherMonth';
+          d.textContent = i;
+          calGrid.appendChild(d);
+        }
+      }
+
+      buildCalendar(viewYear, viewMonth);
+
+      btnPrev.addEventListener('click', () => {
+        viewMonth--;
+        if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+        buildCalendar(viewYear, viewMonth);
+      });
+
+      btnNext.addEventListener('click', () => {
+        viewMonth++;
+        if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+        buildCalendar(viewYear, viewMonth);
+      });
+
+    })();
+  </script>
+</body>
+</html>

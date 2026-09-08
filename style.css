@@ -410,7 +410,6 @@ button {
   display: block;
   font-size: clamp(2rem, 7vw, 3rem);
   font-family: var(--fontDisp);
-  font-style: italic;
   color: rgba(0, 0, 0, 0.15);
   padding: 0.25rem 0;
   letter-spacing: -0.02em;
@@ -544,10 +543,7 @@ button {
   background-clip: text;
 }
 
-.heroWordItalic {
-  font-style: italic;
-  color: rgba(0, 0, 0, 0.35);
-}
+
 
 .heroSub {
   font-size: clamp(0.82rem, 1.3vw, 0.95rem);
@@ -716,7 +712,6 @@ h2 {
   font-family: var(--fontDisp);
   font-size: clamp(1.75rem, 3.8vw, 3rem);
   font-weight: 800;
-  font-style: italic;
   line-height: 1.18;
   letter-spacing: -0.02em;
   color: var(--black);
@@ -825,10 +820,6 @@ h2 {
 .pillarAccentGreen { background: var(--green); }
 .pillarAccentPurple { background: var(--purple); }
 
-.pillarIcon {
-  font-size: 1.5rem;
-  line-height: 1;
-}
 
 .pillarCard h3 {
   font-size: 0.97rem;
@@ -856,13 +847,7 @@ h2 {
   color: var(--blue);
 }
 
-/* delay helpers */
-[data-delay="0"] { transition-delay: 0s !important; }
-[data-delay="1"] { transition-delay: 0.08s !important; }
-[data-delay="2"] { transition-delay: 0.16s !important; }
-[data-delay="3"] { transition-delay: 0.24s !important; }
-[data-delay="4"] { transition-delay: 0.32s !important; }
-[data-delay="5"] { transition-delay: 0.40s !important; }
+
 
 
 /* ══════════════════════════════════════════
@@ -986,8 +971,7 @@ h2 {
 }
 
 .missionImgWrapPlaceholder::after {
-  content: '🔬';
-  font-size: 3.5rem;
+  content: '';
 }
 
 .missionImg {
@@ -1001,39 +985,7 @@ h2 {
   transform: scale(1.04);
 }
 
-.missionTagLine {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
 
-.tagBlue,
-.tagGreen,
-.tagPurple {
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 0.26rem 0.8rem;
-  border-radius: 99px;
-  letter-spacing: 0.04em;
-}
-
-.tagBlue {
-  background: rgba(48, 101, 191, 0.08);
-  color: #2a57a8;
-  border: 1px solid rgba(48, 101, 191, 0.2);
-}
-
-.tagGreen {
-  background: rgba(114, 184, 138, 0.1);
-  color: #3d8a5a;
-  border: 1px solid rgba(114, 184, 138, 0.2);
-}
-
-.tagPurple {
-  background: rgba(192, 149, 204, 0.1);
-  color: #9055a6;
-  border: 1px solid rgba(192, 149, 204, 0.2);
-}
 
 
 /* ══════════════════════════════════════════
@@ -1072,7 +1024,6 @@ h2 {
   font-family: var(--fontDisp);
   font-size: 3.5rem;
   font-weight: 800;
-  font-style: italic;
   color: rgba(0, 0, 0, 0.06);
   line-height: 1;
   margin-bottom: 1rem;
@@ -1115,7 +1066,6 @@ h2 {
   font-family: var(--fontDisp);
   font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: 800;
-  font-style: italic;
   color: var(--white);
   margin-bottom: 1.25rem;
   letter-spacing: -0.03em;
@@ -1239,21 +1189,10 @@ h2 {
    REVEAL SYSTEM (simple fade-in only)
 ══════════════════════════════════════════ */
 
-[data-reveal="rise"] {
-  opacity: 0;
-  transform: translate3d(0, 18px, 0);
-  transition: opacity 0.55s var(--easeOut), transform 0.55s var(--easeOut);
-}
-
+[data-reveal="rise"],
 [data-reveal="fade"] {
-  opacity: 0;
-  transition: opacity 0.6s var(--easeOut);
-}
-
-[data-reveal="rise"].visible,
-[data-reveal="fade"].visible {
   opacity: 1;
-  transform: translate3d(0, 0, 0);
+  transform: none;
 }
 
 
@@ -1435,3 +1374,769 @@ h2 {
   .cursor, .cursorDot     { display: none !important; }
   body, a, button         { cursor: auto !important; }
 } */
+
+/* ══════════════════════════════════════════
+   PAGE HERO (inner pages — about, events, newsletter)
+══════════════════════════════════════════ */
+
+.pageHero {
+  padding: calc(var(--navH) + 5rem) 0 5rem;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.pageHeroInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+.pageHeroEyebrow {
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pageHeroEyebrow::before {
+  content: '◆';
+  font-size: 0.4rem;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pageHero h1 {
+  font-family: var(--fontDisp);
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--black);
+  max-width: 700px;
+  margin-bottom: 1.25rem;
+}
+
+.pageHeroSub {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.78;
+  max-width: 520px;
+}
+
+
+/* ══════════════════════════════════════════
+   ABOUT — TEAM CARDS
+══════════════════════════════════════════ */
+
+.teamSection {
+  padding: 5rem 0;
+  background: var(--white);
+}
+
+.teamSection + .teamSection {
+  border-top: 1px solid var(--border);
+}
+
+.teamSectionLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.28);
+  margin-bottom: 2.5rem;
+}
+
+/* Executive team — larger cards */
+.teamGridExec {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.memberCardExec {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: background 0.22s;
+}
+
+.memberCardExec:hover {
+  background: var(--off);
+}
+
+.memberAvatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--off);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  flex-shrink: 0;
+}
+
+.memberAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.memberAvatarInitials {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fontDisp);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: rgba(0,0,0,0.25);
+}
+
+.memberRoleBar {
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  margin-bottom: 0.25rem;
+}
+
+.memberRoleBarBlue   { background: var(--blue); }
+.memberRoleBarGreen  { background: var(--green); }
+.memberRoleBarPurple { background: var(--purple); }
+
+.memberCardExec h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: -0.01em;
+}
+
+.memberRole {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+.memberBio {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.76;
+  margin-top: 0.5rem;
+  flex: 1;
+}
+
+.memberLinks {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.memberLink {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 0.28rem 0.7rem;
+  border-radius: 4px;
+  transition: color 0.18s, border-color 0.18s;
+}
+
+.memberLink:hover {
+  color: var(--black);
+  border-color: rgba(0,0,0,0.35);
+}
+
+/* General members — compact grid */
+.teamGridMembers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.memberCardCompact {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: background 0.22s;
+}
+
+.memberCardCompact:hover {
+  background: var(--off);
+}
+
+.memberAvatarSm {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--off);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  margin-bottom: 0.6rem;
+}
+
+.memberAvatarSm img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.memberCardCompact h4 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: -0.01em;
+}
+
+.memberCardCompact .memberRole {
+  font-size: 0.72rem;
+}
+
+/* Advisors — row layout */
+.advisorGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.advisorCard {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+  transition: background 0.22s;
+}
+
+.advisorCard:hover {
+  background: var(--off);
+}
+
+.advisorInfo h3 {
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.2rem;
+}
+
+.advisorInfo .memberRole {
+  margin-bottom: 0.6rem;
+}
+
+.advisorInfo p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+
+/* ══════════════════════════════════════════
+   EVENTS PAGE — CALENDAR + LISTINGS
+══════════════════════════════════════════ */
+
+.eventsLayout {
+  padding: 4rem 0 6rem;
+  background: var(--white);
+}
+
+/* Tab switcher */
+.eventsTabs {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  width: fit-content;
+  margin-bottom: 3rem;
+}
+
+.eventsTab {
+  padding: 0.6rem 1.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--white);
+  border: none;
+  cursor: none;
+  transition: background 0.18s, color 0.18s;
+  border-right: 1px solid var(--border);
+}
+
+.eventsTab:last-child {
+  border-right: none;
+}
+
+.eventsTab.active,
+.eventsTab:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* Mini calendar */
+.calendarWrap {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.calendarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--off);
+}
+
+.calendarTitle {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: -0.01em;
+}
+
+.calendarNav {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.calNavBtn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--white);
+  font-size: 0.78rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+  transition: background 0.18s, color 0.18s;
+}
+
+.calNavBtn:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calDayLabel {
+  padding: 0.65rem 0;
+  text-align: center;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.25);
+  border-bottom: 1px solid var(--border);
+  background: var(--off);
+}
+
+.calDay {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  color: var(--muted);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  transition: background 0.18s;
+  cursor: default;
+}
+
+.calDay:nth-child(7n) {
+  border-right: none;
+}
+
+.calDay.otherMonth {
+  color: rgba(0,0,0,0.12);
+}
+
+.calDay.today {
+  font-weight: 700;
+  color: var(--black);
+  background: rgba(48,101,191,0.06);
+}
+
+.calDay.hasEvent {
+  cursor: pointer;
+  color: var(--blue);
+  font-weight: 700;
+  background: rgba(48,101,191,0.07);
+}
+
+.calDay.hasEvent::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+.calDay.hasPastEvent {
+  color: var(--muted);
+  background: rgba(0,0,0,0.03);
+}
+
+.calDay.hasPastEvent::after {
+  background: var(--muted);
+  opacity: 0.6;
+}
+
+.calDay:hover.hasEvent {
+  background: rgba(48,101,191,0.13);
+}
+
+/* Event cards */
+.eventsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.eventCard {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: background 0.22s;
+}
+
+.eventCard:hover {
+  background: var(--off);
+}
+
+.eventDateChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.eventDateDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.eventDateDotUpcoming { background: var(--blue); }
+.eventDateDotPast     { background: rgba(0,0,0,0.18); }
+
+.eventCard h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.eventCard p {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.76;
+  flex: 1;
+}
+
+.eventMeta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.eventMetaItem {
+  font-size: 0.72rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.eventMetaItem .material-icons {
+  font-size: 0.88rem;
+  opacity: 0.55;
+}
+
+.eventPastBadge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.28);
+  border: 1px solid var(--border);
+  padding: 0.18rem 0.55rem;
+  border-radius: 3px;
+  align-self: flex-start;
+}
+
+/* Empty state */
+.eventsEmpty {
+  padding: 4rem 2rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.88rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.eventsEmpty strong {
+  display: block;
+  font-family: var(--fontDisp);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: rgba(0,0,0,0.08);
+  margin-bottom: 0.75rem;
+}
+
+
+/* ══════════════════════════════════════════
+   NEWSLETTER PAGE
+══════════════════════════════════════════ */
+
+.newsletterLayout {
+  padding: 4rem 0 6rem;
+  background: var(--white);
+}
+
+/* Subscribe bar */
+.subscribeBar {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2rem 2.5rem;
+  background: var(--off);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+}
+
+.subscribeBarText h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.3rem;
+}
+
+.subscribeBarText p {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.subscribeForm {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.subscribeInput {
+  font-family: var(--fontBase);
+  font-size: 0.85rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--black);
+  outline: none;
+  width: 240px;
+  transition: border-color 0.18s;
+}
+
+.subscribeInput:focus {
+  border-color: var(--blue);
+}
+
+.subscribeInput::placeholder {
+  color: rgba(0,0,0,0.28);
+}
+
+/* Newsletter archive */
+.newsletterArchiveLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.28);
+  margin-bottom: 1.5rem;
+}
+
+.newsletterGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.newsletterCard {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: background 0.22s;
+  position: relative;
+}
+
+.newsletterCard:hover {
+  background: var(--off);
+}
+
+.newsletterCardDate {
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.25);
+}
+
+.newsletterCard h3 {
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+.newsletterCard p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.74;
+  flex: 1;
+}
+
+.newsletterCardAccent {
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  margin-bottom: 0.25rem;
+}
+
+.newsletterCardAccentBlue   { background: var(--blue); }
+.newsletterCardAccentGreen  { background: var(--green); }
+.newsletterCardAccentPurple { background: var(--purple); }
+
+.newsletterReadLink {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+  transition: color 0.18s;
+}
+
+.newsletterCard:hover .newsletterReadLink {
+  color: var(--black);
+}
+
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — NEW PAGES
+══════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .teamGridExec {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .teamGridMembers {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .advisorGrid {
+    grid-template-columns: 1fr;
+  }
+  .newsletterGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .pageHero {
+    padding: calc(var(--navH) + 3rem) 0 3rem;
+  }
+  .pageHeroInner {
+    padding: 0 1.5rem;
+  }
+  .teamGridExec {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .teamGridMembers {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  .advisorGrid {
+    gap: 1rem;
+  }
+  .eventsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .newsletterGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .subscribeBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .subscribeForm {
+    width: 100%;
+    flex-direction: column;
+  }
+  .subscribeInput {
+    width: 100%;
+  }
+  .eventsLayout,
+  .newsletterLayout {
+    padding: 3rem 0 5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .teamGridMembers {
+    grid-template-columns: 1fr;
+  }
+}

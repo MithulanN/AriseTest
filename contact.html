@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — ARISE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    /* ── Contact-page-specific styles ── */
+
+    .contactLayout {
+      padding: 4rem 0 7rem;
+      background: var(--white);
+    }
+
+    /* Primary channels grid */
+    .channelsGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 4rem;
+    }
+
+    .channelCard {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2.25rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: background 0.2s, border-color 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .channelCard:hover {
+      background: var(--off);
+      border-color: rgba(0,0,0,0.18);
+    }
+
+    .channelIcon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .channelIcon .material-icons {
+      font-size: 1.25rem;
+      color: var(--white);
+    }
+
+    .channelIconBlue   { background: var(--blue); }
+    .channelIconGreen  { background: var(--green); }
+    .channelIconPurple { background: var(--purple); }
+    .channelIconSlate  { background: #3b4a6b; }
+    .channelIconRed    { background: #c0404a; }
+    .channelIconTeal   { background: #2a7a6f; }
+
+    .channelLabel {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.28);
+    }
+
+    .channelCard h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.01em;
+    }
+
+    .channelCard p {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.72;
+      flex: 1;
+    }
+
+    .channelHandle {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .channelHandle .material-icons {
+      font-size: 0.88rem;
+      opacity: 0.45;
+    }
+
+    /* Divider */
+    .contactDivider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 0 3.5rem;
+    }
+
+    /* Who to contact section */
+    .contactDirectLabel {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.28);
+      margin-bottom: 1.5rem;
+    }
+
+    .contactDirectGrid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .contactDirectCard {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem 2rem;
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 1.25rem;
+      align-items: start;
+      transition: background 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .contactDirectCard:hover {
+      background: var(--off);
+    }
+
+    .contactDirectAvatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--off);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .contactDirectAvatar img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    .contactDirectInitials {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--fontDisp);
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: rgba(0,0,0,0.22);
+    }
+
+    .contactDirectInfo h4 {
+      font-size: 0.93rem;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.18rem;
+    }
+
+    .contactDirectInfo .role {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .contactDirectInfo .email {
+      font-size: 0.8rem;
+      color: var(--blue);
+      font-weight: 500;
+    }
+
+    /* Location strip */
+    .locationStrip {
+      margin-top: 4rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      background: var(--off);
+    }
+
+    .locationIcon {
+      width: 48px;
+      height: 48px;
+      background: var(--black);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .locationIcon .material-icons {
+      color: var(--white);
+      font-size: 1.3rem;
+    }
+
+    .locationText h4 {
+      font-size: 0.93rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.2rem;
+    }
+
+    .locationText p {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .channelsGrid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .channelsGrid { grid-template-columns: 1fr; }
+      .contactDirectGrid { grid-template-columns: 1fr; }
+      .locationStrip { flex-direction: column; align-items: flex-start; gap: 1.25rem; padding: 1.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ LOADER ══════════════════════════════ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loaderInner">
+      <div class="loaderWordmark">ARISE</div>
+      <div class="loaderBar"><div class="loaderFill" id="loaderFill"></div></div>
+      <div class="loaderLabel" id="loaderLabel">Loading</div>
+    </div>
+  </div>
+
+  <!-- ══ CUSTOM CURSOR ════════════════════════ -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursorDot" id="cursorDot"></div>
+
+  <!-- ══ NAV ═════════════════════════════════ -->
+  <nav id="navbar">
+    <a href="index.html" class="logoContainer" aria-label="ARISE Home">
+      <img src="images/logo.png" alt="ARISE" class="logoImg" />
+      <span class="logoWordmark">ARISE</span>
+    </a>
+    <ul class="navLinks" id="navLinks">
+      <li><a href="index.html"      class="navLink">Home</a></li>
+      <li><a href="about.html"      class="navLink">About</a></li>
+      <li><a href="events.html"     class="navLink">Events</a></li>
+      <li><a href="newsletter.html" class="navLink">Newsletter</a></li>
+      <li><a href="research.html"   class="navLink">Research</a></li>
+    </ul>
+    <a href="contact.html" class="navCta" style="background:var(--black);color:var(--white);">Contact Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobileMenu" id="mobileMenu" aria-hidden="true">
+    <button class="mobileClose" id="mobileClose" aria-label="Close menu">✕</button>
+    <ul>
+      <li><a href="index.html"      class="mobileLink">Home</a></li>
+      <li><a href="about.html"      class="mobileLink">About</a></li>
+      <li><a href="events.html"     class="mobileLink">Events</a></li>
+      <li><a href="newsletter.html" class="mobileLink">Newsletter</a></li>
+      <li><a href="research.html"   class="mobileLink">Research</a></li>
+      <li><a href="contact.html"    class="mobileLink mobileCta">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- ══ PAGE HERO ════════════════════════════ -->
+  <section class="pageHero">
+    <div class="pageHeroInner">
+      <p class="pageHeroEyebrow">Contact</p>
+      <h1>We're easy to reach.</h1>
+      <p class="pageHeroSub">
+        Whether you have a question, want to collaborate, or just want to learn more
+        about what ARISE does — pick the channel that works best for you.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT LAYOUT ═══════════════════════ -->
+  <section class="contactLayout">
+    <div class="sectionInner">
+
+      <!-- Primary channels -->
+      <div class="channelsGrid">
+
+        <a href="mailto:utsc.arise@outlook.com" class="channelCard">
+          <div class="channelIcon channelIconBlue">
+            <span class="material-icons">mail</span>
+          </div>
+          <span class="channelLabel">Email</span>
+          <h3>General Inquiries</h3>
+          <p>For anything that doesn't fit neatly elsewhere — questions about the club, media, sponsorship, or just getting in touch.</p>
+          <span class="channelHandle">
+            utsc.arise@outlook.com
+            <span class="material-icons">arrow_forward</span>
+          </span>
+        </a>
+
+        <a href="https://discord.gg/Z3DJKVzbr6" target="_blank" rel="noopener" class="channelCard">
+          <div class="channelIcon channelIconPurple">
+            <span class="material-icons">forum</span>
+          </div>
+          <span class="channelLabel">Discord</span>
+          <h3>Community Server</h3>
+          <p>The fastest way to reach the ARISE team and connect with other members. Most day-to-day conversation happens here.</p>
+          <span class="channelHandle">
+            discord.gg/Z3DJKVzbr6
+            <span class="material-icons">arrow_forward</span>
+          </span>
+        </a>
+
+        <a href="https://instagram.com/utsc.arise" target="_blank" rel="noopener" class="channelCard">
+          <div class="channelIcon channelIconRed">
+            <span class="material-icons">photo_camera</span>
+          </div>
+          <span class="channelLabel">Instagram</span>
+          <h3>Updates & Events</h3>
+          <p>Event announcements, behind-the-scenes posts, and research spotlights. Follow us to stay in the loop between newsletters.</p>
+          <span class="channelHandle">
+            @utsc.arise
+            <span class="material-icons">arrow_forward</span>
+          </span>
+        </a>
+
+        <a href="https://www.linkedin.com/company/utsc-arise/" target="_blank" rel="noopener" class="channelCard">
+          <div class="channelIcon channelIconSlate">
+            <span class="material-icons">work</span>
+          </div>
+          <span class="channelLabel">LinkedIn</span>
+          <h3>Professional Network</h3>
+          <p>Follow our page for professional updates, faculty collaborations, and opportunities relevant to student researchers.</p>
+          <span class="channelHandle">
+            UTSC ARISE
+            <span class="material-icons">arrow_forward</span>
+          </span>
+        </a>
+
+        <a href="https://linktr.ee/utsc.arise" target="_blank" rel="noopener" class="channelCard">
+          <div class="channelIcon channelIconGreen">
+            <span class="material-icons">link</span>
+          </div>
+          <span class="channelLabel">Linktree</span>
+          <h3>All Our Links</h3>
+          <p>One page with everything — membership sign-up, event registration, newsletter archive, and all our social profiles.</p>
+          <span class="channelHandle">
+            linktr.ee/utsc.arise
+            <span class="material-icons">arrow_forward</span>
+          </span>
+        </a>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeFOiyZOwNo7t8cZIbMpBCf5sKUerI3FOyfpTX4R0E8NwGE2Q/viewform" target="_blank" rel="noopener" class="channelCard">
+          <div class="channelIcon channelIconTeal">
+            <span class="material-icons">person_add</span>
+          </div>
+          <span class="channelLabel">Join ARISE</span>
+          <h3>Member Sign-Up</h3>
+          <p>Ready to get involved? Fill out our general member sign-up form to join the ARISE community and stay in the loop on events and opportunities.</p>
+          <span class="channelHandle">
+            Sign up now
+            <span class="material-icons">arrow_forward</span>
+          </span>
+        </a>
+
+      </div>
+
+      <hr class="contactDivider" />
+
+      <!-- Direct contacts -->
+      <p class="contactDirectLabel">Direct Contacts</p>
+      <div class="contactDirectGrid">
+
+        <a href="mailto:hayley.wong@mail.utoronto.ca" class="contactDirectCard">
+          <div class="contactDirectAvatar">
+            <div class="contactDirectInitials">HW</div>
+          </div>
+          <div class="contactDirectInfo">
+            <h4>Hayley Wong</h4>
+            <p class="role">Co-President</p>
+            <p class="email">hayley.wong@mail.utoronto.ca</p>
+          </div>
+        </a>
+
+        <a href="mailto:lakesha.varathalingam@mail.utoronto.ca" class="contactDirectCard">
+          <div class="contactDirectAvatar">
+            <div class="contactDirectInitials">LV</div>
+          </div>
+          <div class="contactDirectInfo">
+            <h4>Lakesha Varathalingam</h4>
+            <p class="role">Co-President</p>
+            <p class="email">lakesha.varathalingam@mail.utoronto.ca</p>
+          </div>
+        </a>
+
+        <a href="mailto:niketha.nanthakumar@mail.utoronto.ca" class="contactDirectCard">
+          <div class="contactDirectAvatar">
+            <div class="contactDirectInitials">NN</div>
+          </div>
+          <div class="contactDirectInfo">
+            <h4>Niketha Nanthakumar</h4>
+            <p class="role">Vice President</p>
+            <p class="email">niketha.nanthakumar@mail.utoronto.ca</p>
+          </div>
+        </a>
+
+        <a href="mailto:utsc.arise@outlook.com" class="contactDirectCard">
+          <div class="contactDirectAvatar">
+            <div class="contactDirectInitials">AR</div>
+          </div>
+          <div class="contactDirectInfo">
+            <h4>General Inquiries</h4>
+            <p class="role">All questions welcome</p>
+            <p class="email">utsc.arise@outlook.com</p>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Location -->
+      <div class="locationStrip">
+        <div class="locationIcon">
+          <span class="material-icons">location_on</span>
+        </div>
+        <div class="locationText">
+          <h4>University of Toronto Scarborough</h4>
+          <p>1265 Military Trail, Toronto, ON M1C 1A4<br>
+          We're a student club — we don't have a fixed office, but most of our events and meetings take place on the UTSC campus.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ════════════════════════════════ -->
+  <footer class="footer">
+    <div class="sectionInner footerInner">
+      <div class="footerBrand">
+        <span class="footerWordmark">ARISE</span>
+        <p>University of Toronto Scarborough<br>© 2025 All rights reserved.</p>
+      </div>
+      <nav class="footerNav" aria-label="Site navigation">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">      <span class="material-icons">home</span>         Home</a></li>
+          <li><a href="about.html">      <span class="material-icons">groups</span>       About</a></li>
+          <li><a href="events.html">     <span class="material-icons">event</span>        Events</a></li>
+          <li><a href="newsletter.html"> <span class="material-icons">mail_outline</span> Newsletter</a></li>
+          <li><a href="research.html">   <span class="material-icons">science</span>      Research</a></li>
+        </ul>
+      </nav>
+      <nav class="footerNav" aria-label="Social links">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://instagram.com/utsc.arise" target="_blank" rel="noopener"><span class="material-icons">photo_camera</span> Instagram</a></li>
+          <li><a href="https://discord.gg/Z3DJKVzbr6"    target="_blank" rel="noopener"><span class="material-icons">forum</span>        Discord</a></li>
+          <li><a href="https://www.linkedin.com/company/utsc-arise/" target="_blank" rel="noopener"><span class="material-icons">work</span>  LinkedIn</a></li>
+          <li><a href="contact.html"><span class="material-icons">mail</span> Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footerRule"></div>
+    <div class="sectionInner footerBottom">
+      <p>Built by UTSC ARISE 2025</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
