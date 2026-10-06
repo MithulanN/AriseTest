@@ -3,7 +3,7 @@
    ───────────────────────────────────────────────────────────
    HOW TO ADD A NEW ISSUE
    1. Put the PDF in the "newsletters" folder
-      (example: newsletters/2025-11-monthly.pdf)
+      (example: newsletters/2026-11-monthly.pdf)
    2. Copy one block below (from the { to the },) and paste it
       at the TOP of the list, above the newest issue.
    3. Change the text between the quotes. Do not remove commas
@@ -11,13 +11,13 @@
 
    FIELD GUIDE
    type      "monthly" or "weekly" (monthly is shown first on the site)
-   date      text shown to readers, e.g. "November 2025"
+   date      text shown to readers, e.g. "November 2026"
    title     "Short Headline: Longer description"
              (the part before the colon becomes the big banner)
    summary   2 or 3 sentences about the issue
    highlights  up to 4 short lines, one per sticker
    accent    "blue", "green", "purple", "pink" or "orange"
-   pdf       path to the PDF file, e.g. "newsletters/2025-11-monthly.pdf"
+   pdf       path to the PDF file, e.g. "newsletters/2026-11-monthly.pdf"
              (leave as "" if the PDF is not ready yet)
    image     optional picture, e.g. "images/issue-08.png" (or "")
    caption   optional line under the picture (or "")
@@ -27,49 +27,19 @@ window.ARISE_NEWSLETTERS = [
 
   {
     type: "monthly",
-    date: "October 2025",
-    title: "Fall Kickoff: Research Fair Preview and New Member Welcome",
-    summary: "Our October issue welcomes new members and looks ahead to the Fall Research Fair, with advice from the professors who will be there.",
+    date: "October 2026",
+    title: "Spooky Season: Meet the Executives and Get Ready for Pumpkinstein",
+    summary: "BOO! It's spooky season. This issue sits down with ARISE's co-presidents and vice president for a look at life in and out of the lab, and previews Pumpkinstein on October 14, a Halloween night of pumpkin painting and spooky research topics.",
     highlights: [
-      "A preview of the Fall Research Fair",
-      "A Q&A with professors opening their labs to undergraduates",
-      "How to write your first email to a professor"
+      "Presidential Spotlight: a day in the life, memorable moments, and getting through rough patches in research",
+      "Vice-Presidential Spotlight: fun facts, favourite moments, hobbies, and goals for ARISE",
+      "Events to look forward to: Pumpkinstein on October 14, 5:30 to 7:30 PM in SW 311",
+      "PSA: attending brings you one step closer to CCR (co-curricular record) recognition"
     ],
-    accent: "blue",
-    pdf: "newsletters/2025-10-monthly.pdf",
+    accent: "orange",
+    pdf: "",                       // when the PDF is ready: "newsletters/2026-10-monthly.pdf"
     image: "",
-    caption: ""
-  },
-
-  {
-    type: "weekly",
-    date: "Week of October 6, 2025",
-    title: "This Week: Welcome Social, CV Workshop and Fair Volunteers",
-    summary: "A quick look at what is happening on campus this week.",
-    highlights: [
-      "Welcome social on Wednesday",
-      "Sign up to volunteer at the Research Fair"
-    ],
-    accent: "green",
-    pdf: "",
-    image: "",
-    caption: ""
-  },
-
-  {
-    type: "monthly",
-    date: "September 2025",
-    title: "Welcome Back: A New Year, New Opportunities in Undergraduate Research",
-    summary: "The back-to-school issue lays out ARISE's fall 2025 programming and gets you ready for the year's first research applications.",
-    highlights: [
-      "Our full fall programming calendar",
-      "An introduction to NSERC USRA applications",
-      "A student spotlight on a summer publication"
-    ],
-    accent: "purple",
-    pdf: "",
-    image: "",
-    caption: ""
+    caption: "Paint and decorate your own Franken-pumpkin body part on October 14!"
   }
 
 ];
