@@ -1,0 +1,279 @@
+/* ══════════════════════════════════════════
+   NEWSLETTER: "Shinbun" front-page component
+   Append to the end of style.css (or link as its own file).
+   Needs the Google Fonts link from the notes (Mochiy Pop One,
+   Zen Maru Gothic, Caveat Brush).
+══════════════════════════════════════════ */
+
+/* Adaptive layout: 1 issue = no sidebar, 2+ = sidebar */
+.newsletterViewer[data-count="one"] {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+}
+.newsletterSidebar[hidden] { display: none; }
+
+/* The paper */
+.newsletterReader.paper {
+  --pc: var(--blue);            /* issue accent */
+  --pcText: #fff;               /* text that sits on the accent */
+  --ink: #1d1b3b;
+  --yellow: #FFD84D;
+  --pink: #FF8FB1;
+  --sky: #8AD8FF;
+  --orange: #FFA24C;
+  --fDisp: "Cherry Bomb One", system-ui;
+  --fBody: 'Zen Maru Gothic', 'Inter', sans-serif;
+  --fHand: 'Caveat Brush', cursive;
+
+  width: 100%;
+  max-width: 780px;
+  padding: 0 1.4rem 1.5rem;
+  overflow: hidden;
+  font-family: var(--fBody);
+  color: var(--ink);
+  background-color: #fffbee;
+  background-image: radial-gradient(rgba(29, 27, 59, 0.07) 1px, transparent 1.3px);
+  background-size: 10px 10px;
+  border: 2px solid var(--pc);               /* the only outline on the page */
+  border-radius: 22px;
+  box-shadow: 8px 8px 0 color-mix(in srgb, var(--pc) 30%, transparent);
+}
+.paper[data-accent="green"]  { --pc: var(--green);  --pcText: var(--ink); }
+.paper[data-accent="purple"] { --pc: var(--purple); --pcText: var(--ink); }
+.paper[data-accent="pink"]   { --pc: var(--pink);   --pcText: var(--ink); }
+.paper[data-accent="orange"] { --pc: var(--orange); --pcText: var(--ink); }
+
+/* masthead: a solid ink band instead of a ruled line */
+.paperMast {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 -1.4rem 1.4rem;
+  padding: 0.7rem 1.4rem;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.paperMastName {
+  font-family: var(--fDisp);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--yellow);
+}
+
+/* headline banner + starburst badge */
+.paperHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.2rem;
+  align-items: center;
+  margin-bottom: 1.6rem;
+}
+.paperBanner {
+  margin: 0;
+  padding: 0.5em 0.85em 0.6em;
+  background: var(--pc);
+  color: var(--pcText);
+  font-family: var(--fDisp);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 5.2vw, 3rem);
+  line-height: 1.1;
+  border-radius: 16px;
+  transform: rotate(-1.2deg);
+  box-shadow: 6px 6px 0 var(--yellow);
+}
+.paperBadge {
+  display: grid;
+  place-items: center;
+  width: 118px;
+  height: 118px;
+  text-align: center;
+  line-height: 1.05;
+  background: var(--yellow);
+  color: var(--ink);
+  transform: rotate(8deg);
+  clip-path: polygon(50% 0%, 61% 18%, 80% 8%, 82% 30%, 100% 35%, 88% 52%, 100% 68%, 80% 72%, 78% 92%, 60% 84%, 50% 100%, 40% 84%, 22% 92%, 20% 72%, 0% 68%, 12% 52%, 0% 35%, 18% 30%, 20% 8%, 39% 18%);
+}
+.paperBadge small {
+  display: block;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.paperBadge b {
+  display: block;
+  font-family: var(--fDisp);
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+/* body: lead story + figure */
+.paperBody {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: 1.6rem;
+}
+.paperKicker {                       /* handwritten, with a highlighter swipe */
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  padding: 0 0.2em;
+  font-family: var(--fHand);
+  font-size: 1.45rem;
+  line-height: 1.2;
+  background: linear-gradient(transparent 55%, var(--yellow) 55%, var(--yellow) 90%, transparent 90%);
+  transform: rotate(-2deg);
+}
+.paperLeadTitle {
+  margin: 0 0 0.7rem;
+  font-family: var(--fDisp);
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--pc);
+}
+.paper[data-accent="green"]  .paperLeadTitle,
+.paper[data-accent="purple"] .paperLeadTitle,
+.paper[data-accent="pink"]   .paperLeadTitle,
+.paper[data-accent="orange"] .paperLeadTitle { color: var(--ink); }
+.paperText {
+  margin: 0;
+  columns: 2;
+  column-gap: 1.4rem;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  hyphens: auto;
+}
+
+/* illustration + speech bubble (filled shapes, no outlines) */
+.paperFig { margin: 0; display: flex; flex-direction: column; gap: 1.1rem; }
+.paperFigFrame {
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 26px 26px 26px 6px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--pc) 35%, #fff), color-mix(in srgb, var(--sky) 55%, #fff));
+  color: var(--ink);
+  opacity: 0.9;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transform: rotate(1.5deg);
+}
+.paperFigFrame img { width: 100%; height: 100%; object-fit: cover; }
+.paperFig figcaption {
+  position: relative;
+  padding: 0.75rem 0.95rem;
+  background: var(--pink);
+  border-radius: 16px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.paperFig figcaption::before {       /* bubble tail */
+  content: "";
+  position: absolute;
+  top: -8px; left: 26px;
+  width: 16px; height: 16px;
+  background: var(--pink);
+  border-radius: 3px;
+  transform: rotate(45deg);
+}
+
+/* "In this issue": tilted colour stickers with oversized numerals */
+.paperStories {
+  list-style: none;
+  margin: 2.2rem 0 1.6rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.4rem 1.1rem;
+}
+.paperStory {
+  position: relative;
+  padding: 2.5rem 1.1rem 1.1rem;
+  border-radius: 18px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.5;
+  box-shadow: 4px 5px 0 rgba(29, 27, 59, 0.12);
+  transition: transform 0.25s var(--ease);
+}
+.paperStory p { margin: 0; }
+.paperStory:nth-child(4n+1) { background: var(--yellow); transform: rotate(-1.6deg); }
+.paperStory:nth-child(4n+2) { background: var(--pink);   transform: rotate(1.2deg) translateY(12px); }
+.paperStory:nth-child(4n+3) { background: var(--sky);    transform: rotate(-1deg); }
+.paperStory:nth-child(4n+4) { background: var(--green);  transform: rotate(1.4deg) translateY(8px); }
+.paperStory:hover { transform: rotate(0) translateY(-4px); }
+.paperStoryNum {
+  position: absolute;
+  top: -1.5rem;
+  left: 0.8rem;
+  font-family: var(--fDisp);
+  font-size: 4.2rem;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 3px 3px 0 var(--ink);
+  pointer-events: none;
+}
+
+/* footer */
+.paperFoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* Responsive */
+@media (max-width: 680px) {
+  .paperHead { grid-template-columns: 1fr; }
+  .paperBadge { width: 96px; height: 96px; justify-self: end; margin-top: -0.4rem; }
+  .paperBody { grid-template-columns: 1fr; }
+  .paperText { columns: 1; }
+  .paperStories { grid-template-columns: 1fr; gap: 2rem; }
+  .paperStory:nth-child(n) { translate: 0 0; }
+  .paperStory:nth-child(4n+2), .paperStory:nth-child(4n+4) { transform: rotate(1deg); }
+}
+
+/* Sidebar filter: plain text tabs with an underline, no pills */
+.issueFilter {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.issueFilter button {
+  padding: 0 0 0.25rem;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--muted);
+  cursor: pointer;
+  box-shadow: inset 0 -3px 0 transparent;
+  transition: color 0.2s, box-shadow 0.2s;
+}
+.issueFilter button:hover { color: var(--black); }
+.issueFilter button.isOn  { color: var(--black); box-shadow: inset 0 -3px 0 var(--yellow, #FFD84D); }
+
+.paperSoon {
+  font-family: var(--fHand);
+  font-size: 1.25rem;
+  color: var(--ink);
+  background: linear-gradient(transparent 55%, var(--yellow) 55%, var(--yellow) 90%, transparent 90%);
+  padding: 0 0.2em;
+}

@@ -54,7 +54,7 @@ body {
   background: var(--white);
   color: var(--black);
   overflow-x: hidden;
-  cursor: none;
+  /* cursor: none; */
 }
 
 a {
@@ -75,7 +75,7 @@ button {
   font-family: var(--fontBase);
   border: none;
   background: none;
-  cursor: none;
+  /* cursor: none; */
 }
 
 /* touch / no-hover: restore default cursor, hide custom elements */
@@ -333,7 +333,7 @@ button {
   gap: 5px;
   padding: 6px 4px;
   z-index: 701;
-  cursor: none;
+  /* cursor: none; */
 }
 
 .hamburger span {
@@ -390,7 +390,7 @@ button {
   right: 1.75rem;
   font-size: 1.2rem;
   color: var(--muted);
-  cursor: none;
+  /* cursor: none; */
   transition: color 0.2s;
 }
 
@@ -1676,7 +1676,7 @@ h2 {
   color: var(--muted);
   background: var(--white);
   border: none;
-  cursor: none;
+  /* cursor: none; */
   transition: background 0.18s, color 0.18s;
   border-right: 1px solid var(--border);
 }
@@ -1731,7 +1731,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: none;
+  /* cursor: none; */
   transition: background 0.18s, color 0.18s;
 }
 
@@ -1768,7 +1768,7 @@ h2 {
   border-bottom: 1px solid var(--border);
   position: relative;
   transition: background 0.18s;
-  cursor: default;
+  /* cursor: default; */
 }
 
 .calDay:nth-child(7n) {
@@ -1930,56 +1930,288 @@ h2 {
 
 /* ══════════════════════════════════════════
    NEWSLETTER PAGE
+   Layout: one featured issue (reader) + issue picker sidebar
 ══════════════════════════════════════════ */
 
 .newsletterLayout {
-  padding: 4rem 0 6rem;
+  padding: 6rem 0 8rem;
   background: var(--white);
 }
 
-/* Subscribe bar */
+.newsletterViewer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 6rem;
+  align-items: start;
+}
+
+
+/* ── Reader (main issue) ─────────────────── */
+
+.newsletterReader {
+  max-width: 680px;
+  scroll-margin-top: calc(var(--navH) + 2rem);
+  animation: newsletterFadeIn 0.45s var(--easeOut);
+}
+
+@keyframes newsletterFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.issueLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+.issueLabel::before {
+  content: '◆';
+  font-size: 0.4rem;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.issueMeta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.issueDate {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.issueAccent {
+  width: 32px;
+  height: 2px;
+  border-radius: 2px;
+}
+
+.issueAccentBlue   { background: var(--blue); }
+.issueAccentGreen  { background: var(--green); }
+.issueAccentPurple { background: var(--purple); }
+
+.issueTitle {
+  font-family: var(--fontDisp);
+  font-size: clamp(1.9rem, 3.4vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin-bottom: 2rem;
+}
+
+.issueSummary {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--muted);
+  max-width: 62ch;
+  margin-bottom: 4rem;
+}
+
+.issueListLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.35);
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.issueHighlights {
+  list-style: none;
+  margin-bottom: 3.5rem;
+}
+
+.issueHighlights li {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  align-items: baseline;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.issueHighlightNum {
+  font-family: var(--fontDisp);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.25);
+}
+
+.issueHighlights p {
+  font-size: 0.97rem;
+  line-height: 1.75;
+  color: var(--black);
+}
+
+.issueReadBtn {
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+}
+
+
+/* ── Sidebar (issue picker) ──────────────── */
+
+.newsletterSidebar {
+  position: sticky;
+  top: calc(var(--navH) + 2rem);
+  max-height: calc(100vh - var(--navH) - 4rem);
+  overflow-y: auto;
+  padding-left: 2.5rem;
+  border-left: 1px solid var(--border);
+}
+
+.newsletterArchiveLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.35);
+  margin-bottom: 1.5rem;
+}
+
+.issueTabList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.issueTab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-radius: var(--radius);
+  transition: background 0.2s var(--ease);
+}
+
+.issueTab::before {
+  content: '';
+  position: absolute;
+  left: -2.5rem;
+  top: 0.75rem;
+  bottom: 0.75rem;
+  width: 2px;
+  background: var(--grad);
+  border-radius: 2px;
+  transform: scaleY(0);
+  transition: transform 0.22s var(--ease);
+}
+
+.issueTab:hover {
+  background: var(--off);
+}
+
+.issueTab.isActive {
+  background: var(--off);
+}
+
+.issueTab.isActive::before {
+  transform: scaleY(1);
+}
+
+.issueTab:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.issueTabDate {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.35);
+}
+
+.issueTabTitle {
+  font-size: 0.87rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--muted);
+  transition: color 0.2s var(--ease);
+}
+
+.issueTab:hover .issueTabTitle,
+.issueTab.isActive .issueTabTitle {
+  color: var(--black);
+}
+
+.issueTab.isActive .issueTabTitle {
+  font-weight: 600;
+}
+
+
+/* ── Subscribe bar ───────────────────────── */
+
 .subscribeBar {
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 2rem 2.5rem;
+  padding: 2.5rem 3rem;
   background: var(--off);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
-  margin-bottom: 3.5rem;
+  gap: 2.5rem;
+  margin-top: 7rem;
   flex-wrap: wrap;
 }
 
 .subscribeBarText h3 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--black);
   letter-spacing: -0.01em;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
 }
 
 .subscribeBarText p {
-  font-size: 0.82rem;
+  font-size: 0.87rem;
+  line-height: 1.7;
   color: var(--muted);
 }
 
 .subscribeForm {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.75rem;
   flex-shrink: 0;
 }
 
 .subscribeInput {
   font-family: var(--fontBase);
-  font-size: 0.85rem;
-  padding: 0.6rem 1rem;
+  font-size: 0.87rem;
+  padding: 0.7rem 1.1rem;
   border: 1px solid var(--border);
   border-radius: 6px;
   background: var(--white);
   color: var(--black);
   outline: none;
-  width: 240px;
+  width: 260px;
   transition: border-color 0.18s;
 }
 
@@ -1988,88 +2220,7 @@ h2 {
 }
 
 .subscribeInput::placeholder {
-  color: rgba(0,0,0,0.28);
-}
-
-/* Newsletter archive */
-.newsletterArchiveLabel {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(0,0,0,0.28);
-  margin-bottom: 1.5rem;
-}
-
-.newsletterGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-}
-
-.newsletterCard {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  transition: background 0.22s;
-  position: relative;
-}
-
-.newsletterCard:hover {
-  background: var(--off);
-}
-
-.newsletterCardDate {
-  font-size: 0.67rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(0,0,0,0.25);
-}
-
-.newsletterCard h3 {
-  font-size: 0.97rem;
-  font-weight: 700;
-  color: var(--black);
-  letter-spacing: -0.01em;
-  line-height: 1.35;
-}
-
-.newsletterCard p {
-  font-size: 0.82rem;
-  color: var(--muted);
-  line-height: 1.74;
-  flex: 1;
-}
-
-.newsletterCardAccent {
-  width: 18px;
-  height: 2px;
-  border-radius: 2px;
-  margin-bottom: 0.25rem;
-}
-
-.newsletterCardAccentBlue   { background: var(--blue); }
-.newsletterCardAccentGreen  { background: var(--green); }
-.newsletterCardAccentPurple { background: var(--purple); }
-
-.newsletterReadLink {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--muted);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  margin-top: 0.5rem;
-  transition: color 0.18s;
-}
-
-.newsletterCard:hover .newsletterReadLink {
-  color: var(--black);
+  color: rgba(0, 0, 0, 0.28);
 }
 
 
@@ -2087,8 +2238,20 @@ h2 {
   .advisorGrid {
     grid-template-columns: 1fr;
   }
-  .newsletterGrid {
-    grid-template-columns: repeat(2, 1fr);
+  .newsletterViewer {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  .newsletterSidebar {
+    position: static;
+    max-height: none;
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding-top: 2.5rem;
+  }
+  .issueTab::before {
+    left: 0;
   }
 }
 
@@ -2114,13 +2277,18 @@ h2 {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  .newsletterGrid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
   .subscribeBar {
     flex-direction: column;
     align-items: flex-start;
+    padding: 2rem 1.5rem;
+    margin-top: 5rem;
+  }
+  .issueSummary {
+    margin-bottom: 3rem;
+  }
+  .issueHighlights li {
+    grid-template-columns: 2.5rem 1fr;
+    padding: 1.5rem 0;
   }
   .subscribeForm {
     width: 100%;
@@ -2129,9 +2297,11 @@ h2 {
   .subscribeInput {
     width: 100%;
   }
-  .eventsLayout,
-  .newsletterLayout {
+  .eventsLayout {
     padding: 3rem 0 5rem;
+  }
+  .newsletterLayout {
+    padding: 4rem 0 6rem;
   }
 }
 

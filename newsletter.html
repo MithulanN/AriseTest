@@ -7,7 +7,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="shinbun.css" />
+  <script src="script.js" defer></script>
+  <script src="newsletterData.js" defer></script>
+  <script src="shinbun.js" defer></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -68,9 +73,18 @@
     </div>
   </section>
 
-  <!-- ══ NEWSLETTER LAYOUT ════════════════════ -->
+  <!-- ══ NEWSLETTER VIEWER ════════════════════ -->
   <section class="newsletterLayout">
     <div class="sectionInner">
+
+      <div class="newsletterViewer" id="newsletterViewer">
+  <article class="newsletterReader paper" id="issueReader" aria-live="polite"></article>
+
+  <aside class="newsletterSidebar" id="newsletterSidebar" aria-label="All newsletter issues">
+    <p class="newsletterArchiveLabel">All Issues</p>
+    <ul class="issueTabList" id="issueTabList"></ul>
+  </aside>
+</div>
 
       <!-- Subscribe bar -->
       <div class="subscribeBar">
@@ -81,151 +95,10 @@
         <div class="subscribeForm">
           <input type="email" class="subscribeInput" id="emailInput"
                  placeholder="your.name@mail.utoronto.ca" aria-label="Email address" />
-          <button class="btnPrimary" id="subscribeBtn" style="cursor:none;">Subscribe</button>
+          <button class="btnPrimary" id="subscribeBtn">Subscribe</button>
         </div>
       </div>
 
-      <!-- Archive section -->
-      <p class="newsletterArchiveLabel">Past Issues</p>
-
-      <div class="newsletterGrid">
-
-        <!-- Issue 1 — most recent -->
-        <div class="newsletterCard" data-reveal="rise" data-delay="0">
-          <span class="newsletterCardDate">October 2025</span>
-          <div class="newsletterCardAccent newsletterCardAccentBlue"></div>
-          <h3>Fall Kickoff: Research Fair Preview and New Member Welcome</h3>
-          <p>
-            In this issue: a preview of the Fall Research Fair, a Q&A with three professors
-            opening their labs to undergraduates, and a guide to getting the most out of
-            your first research conversation with a faculty member.
-          </p>
-          <a href="#" class="newsletterReadLink">
-            Read this issue <span class="material-icons" style="font-size:0.85rem;">arrow_forward</span>
-          </a>
-        </div>
-
-        <!-- Issue 2 -->
-        <div class="newsletterCard" data-reveal="rise" data-delay="1">
-          <span class="newsletterCardDate">September 2025</span>
-          <div class="newsletterCardAccent newsletterCardAccentGreen"></div>
-          <h3>Welcome Back: A New Year, New Opportunities in Undergraduate Research</h3>
-          <p>
-            The back-to-school issue: ARISE's full programming calendar for fall 2025,
-            an introduction to NSERC USRA applications, and a student spotlight on a
-            third-year who published her first paper over the summer.
-          </p>
-          <a href="#" class="newsletterReadLink">
-            Read this issue <span class="material-icons" style="font-size:0.85rem;">arrow_forward</span>
-          </a>
-        </div>
-
-        <!-- Issue 3 -->
-        <div class="newsletterCard" data-reveal="rise" data-delay="2">
-          <span class="newsletterCardDate">April 2025</span>
-          <div class="newsletterCardAccent newsletterCardAccentPurple"></div>
-          <h3>End of Year Recap: Everything ARISE Built in 2024–25</h3>
-          <p>
-            A look back at our first full academic year — 12 events, 200 members, 3 campus
-            partnerships, and the stories behind them. Plus: summer research funding
-            opportunities you shouldn't miss.
-          </p>
-          <a href="#" class="newsletterReadLink">
-            Read this issue <span class="material-icons" style="font-size:0.85rem;">arrow_forward</span>
-          </a>
-        </div>
-
-        <!-- Issue 4 -->
-        <div class="newsletterCard" data-reveal="rise" data-delay="3">
-          <span class="newsletterCardDate">March 2025</span>
-          <div class="newsletterCardAccent newsletterCardAccentBlue"></div>
-          <h3>The Research Application Season: What to Send, What to Say</h3>
-          <p>
-            Our most-read issue to date. A step-by-step breakdown of how to cold-email
-            a professor, what goes in a research CV, and how to think about your statement
-            of interest — with before/after examples from real applications.
-          </p>
-          <a href="#" class="newsletterReadLink">
-            Read this issue <span class="material-icons" style="font-size:0.85rem;">arrow_forward</span>
-          </a>
-        </div>
-
-        <!-- Issue 5 -->
-        <div class="newsletterCard" data-reveal="rise" data-delay="4">
-          <span class="newsletterCardDate">February 2025</span>
-          <div class="newsletterCardAccent newsletterCardAccentGreen"></div>
-          <h3>Data Literacy for Researchers: Tools Every Undergraduate Should Know</h3>
-          <p>
-            A practical rundown of the software, databases, and statistical concepts
-            that come up most often in undergraduate research — regardless of discipline.
-            Curated by ARISE members who learned the hard way.
-          </p>
-          <a href="#" class="newsletterReadLink">
-            Read this issue <span class="material-icons" style="font-size:0.85rem;">arrow_forward</span>
-          </a>
-        </div>
-
-        <!-- Issue 6 -->
-        <div class="newsletterCard" data-reveal="rise" data-delay="5">
-          <span class="newsletterCardDate">January 2025</span>
-          <div class="newsletterCardAccent newsletterCardAccentPurple"></div>
-          <h3>Winter Term Reset: Research Reads and What's Ahead for ARISE</h3>
-          <p>
-            New year, new programming. This issue covers ARISE's winter calendar, a reading
-            list compiled by UTSC faculty, and an honest conversation with a student who
-            tried research and decided it wasn't for them — and what came next.
-          </p>
-          <a href="#" class="newsletterReadLink">
-            Read this issue <span class="material-icons" style="font-size:0.85rem;">arrow_forward</span>
-          </a>
-        </div>
-
-        <!-- Issue 7 -->
-        <div class="newsletterCard" data-reveal="rise" data-delay="6">
-          <span class="newsletterCardDate">November 2024</span>
-          <div class="newsletterCardAccent newsletterCardAccentBlue"></div>
-          <h3>Panels, Posters, and Peer Review: What We Learned This Fall</h3>
-          <p>
-            A recap of our fall panels on equity in research, a guide to reading academic
-            papers as an undergrad, and an overview of how peer review works — written
-            for people who have never submitted anything to a journal.
-          </p>
-          <a href="#" class="newsletterReadLink">
-            Read this issue <span class="material-icons" style="font-size:0.85rem;">arrow_forward</span>
-          </a>
-        </div>
-
-        <!-- Issue 8 -->
-        <div class="newsletterCard" data-reveal="rise" data-delay="7">
-          <span class="newsletterCardDate">October 2024</span>
-          <div class="newsletterCardAccent newsletterCardAccentGreen"></div>
-          <h3>The First Research Fair: How It Went and What We'd Do Differently</h3>
-          <p>
-            A candid account of our inaugural Research Fair — what worked, what surprised us,
-            and what we'll change next time. Plus reflections from two professors who
-            attended and what they hope students will take away.
-          </p>
-          <a href="#" class="newsletterReadLink">
-            Read this issue <span class="material-icons" style="font-size:0.85rem;">arrow_forward</span>
-          </a>
-        </div>
-
-        <!-- Issue 9 — founding issue -->
-        <div class="newsletterCard" data-reveal="rise" data-delay="8">
-          <span class="newsletterCardDate">September 2024</span>
-          <div class="newsletterCardAccent newsletterCardAccentPurple"></div>
-          <h3>Issue 1: Why We Started ARISE</h3>
-          <p>
-            The founding issue. A letter from our president on why ARISE exists, what
-            we're trying to build at UTSC, and how you can get involved from day one —
-            whether or not you've ever been in a lab.
-          </p>
-          <a href="#" class="newsletterReadLink">
-            Read this issue <span class="material-icons" style="font-size:0.85rem;">arrow_forward</span>
-          </a>
-        </div>
-
-      </div>
     </div>
   </section>
 
@@ -261,29 +134,5 @@
       <p>Built by UTSC ARISE 2025</p>
     </div>
   </footer>
-
-  <script src="script.js"></script>
-  <script>
-    /* ── Subscribe form feedback ── */
-    (function () {
-      const btn   = document.getElementById('subscribeBtn');
-      const input = document.getElementById('emailInput');
-      if (!btn || !input) return;
-
-      btn.addEventListener('click', () => {
-        const val = input.value.trim();
-        if (!val || !val.includes('@')) {
-          input.style.borderColor = '#c0404a';
-          input.focus();
-          return;
-        }
-        input.style.borderColor = '';
-        btn.textContent = 'Subscribed';
-        btn.style.background = 'var(--green)';
-        btn.disabled = true;
-        input.disabled = true;
-      });
-    })();
-  </script>
 </body>
 </html>
